@@ -26,16 +26,19 @@ public class Publisher {
         this.name = name;
     }
 
+    // NB: тут проверяем, что поле города не пустое
     public void setCity(String city) {
-        if (city == null)
+        if (city == null || city.isEmpty())
         {
             throw new IllegalArgumentException("Ошибка. Город должен быть указан!");
         }
-//        else if (city == "Санкт-Петебург")
-//        {
-//            return "Санкт-Петербург";
-//        }
-        this.city = city;
+    // Исправляем опечатку в названии города. Сравниваем строки И всегда используем методы .equals(), а не через ==
+        if ("Санкт-Петебург".equalsIgnoreCase(city)) {
+            this.city = "Санкт-Петербург";  // присваиваем значение, return не можем делать, потому что метод возвращает тип void
+        }
+        else {
+            this.city = city;
+        }
     }
 
     //Конструктор

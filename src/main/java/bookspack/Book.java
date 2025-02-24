@@ -22,11 +22,19 @@ public class Book {
     }
 
     // Конструктор_3 со значениями: название, список (массив) авторов, год издания, издательство
-    public Book(String name, Publisher publisher, int year, String[] authors) {
+//    public Book(String name, Publisher publisher, int year, String[] authors) {
+//        setName(name);
+//        setPublisher(publisher);
+//        setYear(year);
+//        setAuthors(authors);
+//    }
+
+    // NB: Конструктор_allInOne - заменяющий все другие конструкторы. String... authors - varargs, можно передвать любое кол-во авторов
+    public Book(String name, Publisher publisher, int year, String... authors) {
         setName(name);
         setPublisher(publisher);
         setYear(year);
-        setAuthors(authors);
+        setAuthors(authors); // передаем массив авторов
     }
 
     // get-методы
